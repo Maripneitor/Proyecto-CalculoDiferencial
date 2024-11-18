@@ -221,9 +221,9 @@
             lbtitulo.AutoSize = true;
             lbtitulo.Location = new Point(94, 29);
             lbtitulo.Name = "lbtitulo";
-            lbtitulo.Size = new Size(50, 20);
+            lbtitulo.Size = new Size(52, 20);
             lbtitulo.TabIndex = 1;
-            lbtitulo.Text = "label1";
+            lbtitulo.Text = "INICIO";
             lbtitulo.Click += lbtitulo_Click_1;
             // 
             // icpbinicio
@@ -293,6 +293,7 @@
             Controls.Add(paneltitulo);
             Controls.Add(panelmenu);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
             panelmenu.ResumeLayout(false);
