@@ -18,18 +18,21 @@ namespace Proyecto_CalculoDiferencial.forms
             double limiteInferior = double.Parse(txtLimiteInferior.Text);
             double limiteSuperior = double.Parse(txtLimiteSuperior.Text);
 
+            // Leer la tolerancia del TextBox
+            double tolerancia = double.Parse(txtTolerancia.Text);
+
             rtbPasos.Clear();
 
-            double raiz = MetodoBiseccion(funcion, limiteInferior, limiteSuperior);
+            double raiz = MetodoBiseccion(funcion, limiteInferior, limiteSuperior, tolerancia);
             txtResultado.Text = $"Raíz encontrada: {raiz}";
 
-            MostrarPasos(funcion, limiteInferior, limiteSuperior);
+            MostrarPasos(funcion, limiteInferior, limiteSuperior, tolerancia);
         }
 
-        private double MetodoBiseccion(string funcion, double a, double b)
+        private double MetodoBiseccion(string funcion, double a, double b, double tolerancia)
         {
             double c = 0;
-            while ((b - a) >= 0.001)
+            while ((b - a) >= tolerancia)
             {
                 c = (a + b) / 2;
 
@@ -91,13 +94,13 @@ namespace Proyecto_CalculoDiferencial.forms
             }
         }
 
-        private void MostrarPasos(string funcion, double a, double b)
+        private void MostrarPasos(string funcion, double a, double b, double tolerancia)
         {
             StringBuilder pasos = new StringBuilder();
             pasos.AppendLine($"Función: {funcion}");
             pasos.AppendLine($"Intervalo inicial: [{a}, {b}]");
 
-            while ((b - a) >= 0.001)
+            while ((b - a) >= tolerancia)
             {
                 double c = (a + b) / 2;
 

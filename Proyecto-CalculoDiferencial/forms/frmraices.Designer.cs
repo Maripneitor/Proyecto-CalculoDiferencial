@@ -46,6 +46,8 @@
             label7 = new Label();
             label3 = new Label();
             label4 = new Label();
+            label9 = new Label();
+            txtTolerancia = new TextBox();
             SuspendLayout();
             // 
             // txtFuncion
@@ -149,7 +151,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 160);
+            label1.Location = new Point(12, 220);
             label1.Name = "label1";
             label1.Size = new Size(343, 23);
             label1.TabIndex = 21;
@@ -159,7 +161,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(12, 192);
+            label8.Location = new Point(12, 243);
             label8.Name = "label8";
             label8.Size = new Size(294, 20);
             label8.TabIndex = 22;
@@ -169,7 +171,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(12, 212);
+            label2.Location = new Point(12, 263);
             label2.Name = "label2";
             label2.Size = new Size(343, 20);
             label2.TabIndex = 23;
@@ -179,7 +181,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(12, 232);
+            label6.Location = new Point(12, 283);
             label6.Name = "label6";
             label6.Size = new Size(333, 20);
             label6.TabIndex = 24;
@@ -189,7 +191,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(12, 252);
+            label7.Location = new Point(12, 303);
             label7.Name = "label7";
             label7.Size = new Size(119, 20);
             label7.TabIndex = 25;
@@ -199,7 +201,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(12, 272);
+            label3.Location = new Point(12, 323);
             label3.Name = "label3";
             label3.Size = new Size(242, 20);
             label3.TabIndex = 26;
@@ -209,17 +211,36 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(12, 292);
+            label4.Location = new Point(12, 343);
             label4.Name = "label4";
             label4.Size = new Size(367, 20);
             label4.TabIndex = 27;
             label4.Text = "El exponen se representa con ^n y si es x a la 1 es *x.";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Location = new Point(114, 159);
+            label9.Name = "label9";
+            label9.Size = new Size(80, 20);
+            label9.TabIndex = 28;
+            label9.Text = "Tolerancia";
+            // 
+            // txtTolerancia
+            // 
+            txtTolerancia.Location = new Point(114, 182);
+            txtTolerancia.Name = "txtTolerancia";
+            txtTolerancia.Size = new Size(76, 27);
+            txtTolerancia.TabIndex = 29;
             // 
             // frmraices
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(896, 487);
+            Controls.Add(txtTolerancia);
+            Controls.Add(label9);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label7);
@@ -264,5 +285,7 @@
         private Label label7;
         private Label label3;
         private Label label4;
+        private Label label9;
+        private TextBox txtTolerancia;
     }
 }
