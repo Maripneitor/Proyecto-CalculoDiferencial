@@ -66,7 +66,7 @@
             panelmenu.Dock = DockStyle.Left;
             panelmenu.Location = new Point(0, 0);
             panelmenu.Name = "panelmenu";
-            panelmenu.Size = new Size(220, 623);
+            panelmenu.Size = new Size(220, 734);
             panelmenu.TabIndex = 0;
             panelmenu.Paint += panelmenu_Paint;
             // 
@@ -213,7 +213,7 @@
             paneltitulo.Dock = DockStyle.Top;
             paneltitulo.Location = new Point(220, 0);
             paneltitulo.Name = "paneltitulo";
-            paneltitulo.Size = new Size(962, 75);
+            paneltitulo.Size = new Size(1431, 75);
             paneltitulo.TabIndex = 1;
             // 
             // lbtitulo
@@ -246,7 +246,7 @@
             panelsombra.Dock = DockStyle.Top;
             panelsombra.Location = new Point(220, 75);
             panelsombra.Name = "panelsombra";
-            panelsombra.Size = new Size(962, 10);
+            panelsombra.Size = new Size(1431, 10);
             panelsombra.TabIndex = 2;
             // 
             // panelescritorio
@@ -257,7 +257,7 @@
             panelescritorio.Dock = DockStyle.Fill;
             panelescritorio.Location = new Point(220, 85);
             panelescritorio.Name = "panelescritorio";
-            panelescritorio.Size = new Size(962, 538);
+            panelescritorio.Size = new Size(1431, 649);
             panelescritorio.TabIndex = 3;
             panelescritorio.Paint += panelescritorio_Paint;
             // 
@@ -265,7 +265,7 @@
             // 
             pictureBox2.Anchor = AnchorStyles.None;
             pictureBox2.Image = Properties.Resources.unnamed;
-            pictureBox2.Location = new Point(692, 27);
+            pictureBox2.Location = new Point(926, 82);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(231, 148);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -276,7 +276,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(40, 27);
+            pictureBox1.Location = new Point(274, 82);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(231, 148);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -287,7 +287,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1182, 623);
+            ClientSize = new Size(1651, 734);
             Controls.Add(panelescritorio);
             Controls.Add(panelsombra);
             Controls.Add(paneltitulo);

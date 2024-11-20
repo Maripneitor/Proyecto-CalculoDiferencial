@@ -117,4 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Para ingresar una función en el campo correspondiente, sigue estos pasos:
+
+1. Escribe la función: Usa `x` como la variable.
+2. Ejemplo:
+   - Para  f(x) = x² + 3x + 2 , escribe: x^2 + 3*x + 2.
+   - Para  f(x) = sin(x)  escribe: sin(x).
+   - Para  f(x) = cos(x) , escribe: cos(x)
+
+¡Y eso es todo! Ahora ingresa los límites y subintervalos para calcular</value>
+  </data>
 </root>

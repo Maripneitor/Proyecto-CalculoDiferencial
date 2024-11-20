@@ -25,12 +25,10 @@ namespace Proyecto_CalculoDiferencial.forms
 
         private void label1_Click(object sender, EventArgs e)
         {
-            
         }
 
         private void listBoxPasos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
         }
 
         private void btncalcular_Click(object sender, EventArgs e)
@@ -52,8 +50,10 @@ namespace Proyecto_CalculoDiferencial.forms
                 Func<double, double> funcion = x => EvaluarFuncion(funcionTexto, x);
 
                 double resultado = metodotrapecio(funcion, a, b, n);
-
                 lbresultado.Text = "Resultado: " + resultado.ToString();
+
+                
+                GraficarFuncion(funcion, a, b, n);
             }
             catch (FormatException)
             {
@@ -71,8 +71,11 @@ namespace Proyecto_CalculoDiferencial.forms
             double suma = 0.5 * (funcion(a) + funcion(b));
 
             listBoxPasos.Items.Add($"h = {h}");
+            listBoxPasos.Items.Add("");
             listBoxPasos.Items.Add($"f(a) = {funcion(a)}, f(b) = {funcion(b)}");
+            listBoxPasos.Items.Add("");
             listBoxPasos.Items.Add($"Suma inicial = {suma}");
+            listBoxPasos.Items.Add("");
 
             for (int i = 1; i < n; i++)
             {
@@ -80,9 +83,11 @@ namespace Proyecto_CalculoDiferencial.forms
                 double f_x_i = funcion(x_i);
                 suma += f_x_i;
                 listBoxPasos.Items.Add($"i = {i}, x_i = {x_i}, f(x_i) = {f_x_i}, Suma = {suma}");
+                listBoxPasos.Items.Add("");
             }
 
             double resultado = h * suma;
+            listBoxPasos.Items.Add("");
             listBoxPasos.Items.Add($"Resultado final = {resultado}");
             return resultado;
         }
@@ -91,9 +96,7 @@ namespace Proyecto_CalculoDiferencial.forms
         {
             try
             {
-                
                 string expresionReemplazada = expresion.Replace("x", x.ToString());
-
                 var expression = Infix.ParseOrThrow(expresionReemplazada);
                 var variables = new Dictionary<string, FloatingPoint>
                 {
@@ -114,6 +117,94 @@ namespace Proyecto_CalculoDiferencial.forms
             {
                 throw new InvalidOperationException("Error al evaluar la función: " + ex.Message);
             }
+        }
+
+        private void GraficarFuncion(Func<double, double> funcion, double a, double b, int n)
+        {
+            Bitmap bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            Graphics g = Graphics.FromImage(bitmap);
+
+            Pen axisPen = new Pen(Color.Black, 2);
+            Pen functionPen = new Pen(Color.Blue, 2);
+            Pen pointPen = new Pen(Color.Red, 5);
+            Pen penGuia = new Pen(Color.LightGray, 1);
+
+            int width = pictureBox1.Width;
+            int height = pictureBox1.Height;
+
+            float escalaX = 20f; 
+            float escalaY = 20f; 
+            float origenX = width / 2;
+            float origenY = height / 2;
+
+            
+            for (int i = -10; i <= 10; i++)
+            {
+                
+                float posX = origenX + i * escalaX;
+                g.DrawLine(penGuia, posX, 0, posX, height);
+
+                
+                float posY = origenY - i * escalaY;
+                g.DrawLine(penGuia, 0, posY, width, posY);
+            }
+
+            
+            g.DrawLine(axisPen, 0, height / 2, width, height / 2); 
+            g.DrawLine(axisPen, width / 2, 0, width / 2, height); 
+
+            
+            for (int i = 0; i <= width; i += 40)
+            {
+                g.DrawLine(Pens.Gray, i, height / 2 - 5, i, height / 2 + 5);
+                g.DrawString(((i - width / 2) / 40).ToString(), new Font("Arial", 8), Brushes.Black, i, height / 2 + 5);
+            }
+
+            for (int j = 0; j <= height; j += 40)
+            {
+                g.DrawLine(Pens.Gray, width / 2 - 5, j, width / 2 + 5, j);
+                g.DrawString(((height / 2 - j) / 40).ToString(), new Font("Arial", 8), Brushes.Black, width / 2 + 5, j);
+            }
+
+            double h = (b - a) / n;
+
+            
+            List<PointF> puntos = new List<PointF>();
+            for (double x = a; x <= b; x += 0.01)
+            {
+                double y = funcion(x);
+                int pixelX = (int)((x - a) / (b - a) * width);
+                int pixelY = height / 2 - (int)(y * height / (2 * Math.Max(Math.Abs(funcion(a)), Math.Abs(funcion(b)))));
+
+                if (pixelX >= 0 && pixelX < width && pixelY >= 0 && pixelY < height)
+                {
+                    puntos.Add(new PointF(pixelX, pixelY));
+                }
+            }
+
+            if (puntos.Count > 1)
+            {
+                g.DrawLines(functionPen, puntos.ToArray());
+            }
+
+           
+            Font drawFont = new Font("Arial", 8);
+            SolidBrush drawBrush = new SolidBrush(Color.Black);
+            for (int i = 0; i <= n; i++)
+            {
+                double x_i = a + i * h;
+                double y_i = funcion(x_i);
+                int pixelX = (int)((x_i - a) / (b - a) * width);
+                int pixelY = height / 2 - (int)(y_i * height / (2 * Math.Max(Math.Abs(funcion(a)), Math.Abs(funcion(b)))));
+
+                if (pixelX >= 0 && pixelX < width && pixelY >= 0 && pixelY < height)
+                {
+                    g.DrawEllipse(pointPen, pixelX - 2, pixelY - 2, 5, 5);
+                    g.DrawString($"({x_i:0.00}, {y_i:0.00})", drawFont, drawBrush, pixelX + 5, pixelY - 15);
+                }
+            }
+
+            pictureBox1.Image = bitmap;
         }
     }
 }
