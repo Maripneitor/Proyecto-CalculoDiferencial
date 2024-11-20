@@ -94,5 +94,11 @@ namespace Proyecto_CalculoDiferencial.forms
             rtbProcedimiento.AppendText("\nCálculo final:\n");
             rtbProcedimiento.AppendText($"Integral ≈ {h} / 3 * (f({a}) + 4 * sum_odd + 2 * sum_even + f({b}))\n");
         }
+
+        private void frmsimpson_Load(object sender, EventArgs e)
+        {
+            // Add any initialization code you need here.
+        }
     }
 }
+

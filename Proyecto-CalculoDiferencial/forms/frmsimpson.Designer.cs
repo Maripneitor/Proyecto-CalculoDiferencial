@@ -45,6 +45,9 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
             SuspendLayout();
             // 
             // lblFuncion
@@ -118,7 +121,7 @@
             // btnCalcular
             // 
             btnCalcular.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCalcular.Location = new Point(489, 32);
+            btnCalcular.Location = new Point(560, 12);
             btnCalcular.Name = "btnCalcular";
             btnCalcular.Size = new Size(160, 37);
             btnCalcular.TabIndex = 8;
@@ -130,7 +133,7 @@
             // 
             lblResultado.AutoSize = true;
             lblResultado.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblResultado.Location = new Point(526, 81);
+            lblResultado.Location = new Point(600, 61);
             lblResultado.Name = "lblResultado";
             lblResultado.Size = new Size(79, 20);
             lblResultado.TabIndex = 9;
@@ -138,17 +141,17 @@
             // 
             // rtbProcedimiento
             // 
-            rtbProcedimiento.Location = new Point(378, 168);
+            rtbProcedimiento.Location = new Point(429, 117);
             rtbProcedimiento.Name = "rtbProcedimiento";
             rtbProcedimiento.ReadOnly = true;
             rtbProcedimiento.ScrollBars = RichTextBoxScrollBars.Vertical;
-            rtbProcedimiento.Size = new Size(355, 270);
+            rtbProcedimiento.Size = new Size(387, 299);
             rtbProcedimiento.TabIndex = 10;
             rtbProcedimiento.Text = "";
             // 
             // txtResultado
             // 
-            txtResultado.Location = new Point(526, 117);
+            txtResultado.Location = new Point(600, 84);
             txtResultado.Name = "txtResultado";
             txtResultado.ReadOnly = true;
             txtResultado.Size = new Size(77, 27);
@@ -168,7 +171,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(1, 311);
+            label2.Location = new Point(1, 316);
             label2.Name = "label2";
             label2.Size = new Size(343, 20);
             label2.TabIndex = 13;
@@ -178,21 +181,21 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(1, 331);
+            label3.Location = new Point(1, 376);
             label3.Name = "label3";
-            label3.Size = new Size(238, 20);
+            label3.Size = new Size(242, 20);
             label3.TabIndex = 14;
-            label3.Text = "Raíz = Sqrt (Inicia con mayúscula)";
+            label3.Text = "Raíz = Sqrt (Inicia con mayúscula).";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(1, 351);
+            label4.Location = new Point(1, 396);
             label4.Name = "label4";
-            label4.Size = new Size(363, 20);
+            label4.Size = new Size(367, 20);
             label4.TabIndex = 15;
-            label4.Text = "El exponen se representa con ^n y si es x a la 1 es *x";
+            label4.Text = "El exponen se representa con ^n y si es x a la 1 es *x.";
             // 
             // label5
             // 
@@ -204,11 +207,44 @@
             label5.TabIndex = 16;
             label5.Text = "Favor de escribir la función sin el f(x), g(x) entre otros";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(1, 336);
+            label6.Name = "label6";
+            label6.Size = new Size(333, 20);
+            label6.TabIndex = 17;
+            label6.Text = "además si estos llevan una x va entre paréntesis";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(1, 356);
+            label7.Name = "label7";
+            label7.Size = new Size(119, 20);
+            label7.TabIndex = 18;
+            label7.Text = "ejemplo: Sin (x).";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(1, 296);
+            label8.Name = "label8";
+            label8.Size = new Size(294, 20);
+            label8.TabIndex = 19;
+            label8.Text = "Las ¨x¨ siempre deben de ir en minúscula.";
+            // 
             // frmsimpson
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(890, 476);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -251,5 +287,8 @@
         private Label label3;
         private Label label4;
         private Label label5;
+        private Label label6;
+        private Label label7;
+        private Label label8;
     }
 }
